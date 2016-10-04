@@ -11,9 +11,10 @@ namespace Animation
             var minTransform = CGAffineTransform.MakeRotation((nfloat)((fromLeft ? -1 : 1) * DegreeToRadian(45)));
             var maxTransform = CGAffineTransform.MakeRotation((nfloat)0.0);
             
+            view.Transform = isIn ? maxTransform : minTransform;
             UIView.Animate(duration, 0, UIViewAnimationOptions.CurveEaseInOut,
                 () => {
-                    view.Transform = isIn ? maxTransform : minTransform;
+                    view.Transform = isIn ? minTransform : maxTransform;
                 },
                 onFinished
             );
